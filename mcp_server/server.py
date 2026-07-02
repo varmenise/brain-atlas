@@ -1,5 +1,8 @@
 """BrainAtlas MCP server — knowledge and persistence layer for all agents."""
 
+import logging
+
+# Configure logging
 import json
 import re
 from datetime import datetime, timezone
