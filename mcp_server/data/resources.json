@@ -1,0 +1,434 @@
+{
+  "geospatial_indexing": [
+    {
+      "title": "Geohashing Explained",
+      "url": "https://www.pubnub.com/guides/what-is-geohashing/",
+      "type": "article",
+      "difficulty": 3
+    },
+    {
+      "title": "H3: Uber's Hexagonal Hierarchical Spatial Index",
+      "url": "https://eng.uber.com/h3/",
+      "type": "article",
+      "difficulty": 4
+    },
+    {
+      "title": "Spatial Indexing — Use The Index, Luke",
+      "url": "https://use-the-index-luke.com/sql/where-clause/obfuscation/spatial-indexes",
+      "type": "article",
+      "difficulty": 3
+    }
+  ],
+  "websocket_vs_polling": [
+    {
+      "title": "WebSockets vs Long Polling",
+      "url": "https://ably.com/blog/websockets-vs-long-polling",
+      "type": "article",
+      "difficulty": 2
+    },
+    {
+      "title": "HTTP/2 Server-Sent Events vs WebSockets",
+      "url": "https://www.smashingmagazine.com/2018/02/sse-websockets-data-flow-http2/",
+      "type": "article",
+      "difficulty": 3
+    }
+  ],
+  "eventual_consistency": [
+    {
+      "title": "Eventually Consistent — Werner Vogels (Amazon)",
+      "url": "https://www.allthingsdistributed.com/2008/12/eventually_consistent.html",
+      "type": "article",
+      "difficulty": 3
+    },
+    {
+      "title": "Consistency Models — Jepsen",
+      "url": "https://jepsen.io/consistency",
+      "type": "article",
+      "difficulty": 4
+    }
+  ],
+  "thundering_herd": [
+    {
+      "title": "Thundering Herd Problem",
+      "url": "https://en.wikipedia.org/wiki/Thundering_herd_problem",
+      "type": "article",
+      "difficulty": 3
+    },
+    {
+      "title": "Cache Stampede and How to Fix It",
+      "url": "https://engineering.fb.com/2015/12/03/ios/cache-stampede/",
+      "type": "article",
+      "difficulty": 4
+    }
+  ],
+  "matching_service_isolation": [
+    {
+      "title": "How Uber Manages a Million Writes Per Second",
+      "url": "https://eng.uber.com/how-uber-manages-million-writes-per-second/",
+      "type": "article",
+      "difficulty": 4
+    },
+    {
+      "title": "Microservices Patterns — Chris Richardson",
+      "url": "https://microservices.io/patterns/",
+      "type": "article",
+      "difficulty": 3
+    }
+  ],
+  "fan_out_on_write": [
+    {
+      "title": "Twitter's Timeline Architecture",
+      "url": "https://www.infoq.com/presentations/Twitter-Timeline-Scalability/",
+      "type": "video",
+      "difficulty": 4
+    },
+    {
+      "title": "Fan-out on Write vs Read — System Design Primer",
+      "url": "https://github.com/donnemartin/system-design-primer#feed-design",
+      "type": "article",
+      "difficulty": 3
+    }
+  ],
+  "fan_out_on_read": [
+    {
+      "title": "Fan-out on Write vs Read — System Design Primer",
+      "url": "https://github.com/donnemartin/system-design-primer#feed-design",
+      "type": "article",
+      "difficulty": 3
+    },
+    {
+      "title": "Building Real-Time Feeds at Scale",
+      "url": "https://instagram-engineering.com/building-instagram-stories-28db1ef47e43",
+      "type": "article",
+      "difficulty": 4
+    }
+  ],
+  "timeline_aggregation": [
+    {
+      "title": "Timelines at Scale — Twitter Engineering",
+      "url": "https://www.infoq.com/presentations/Twitter-Timeline-Scalability/",
+      "type": "video",
+      "difficulty": 4
+    },
+    {
+      "title": "News Feed Design — High Scalability",
+      "url": "http://highscalability.com/blog/2012/1/23/facebook-timeline-brought-to-you-by-the-power-of-denormaliza.html",
+      "type": "article",
+      "difficulty": 3
+    }
+  ],
+  "hash_collision_handling": [
+    {
+      "title": "Hash Tables and Collision Resolution",
+      "url": "https://en.wikipedia.org/wiki/Hash_table#Collision_resolution",
+      "type": "article",
+      "difficulty": 2
+    },
+    {
+      "title": "Designing a URL Shortener — Grokking",
+      "url": "https://www.educative.io/courses/grokking-the-system-design-interview/m2ygV4E81AR",
+      "type": "article",
+      "difficulty": 3
+    }
+  ],
+  "redirect_at_scale": [
+    {
+      "title": "301 vs 302 Redirects and Caching",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Redirections",
+      "type": "article",
+      "difficulty": 2
+    },
+    {
+      "title": "URL Shortener System Design",
+      "url": "https://bytebytego.com/courses/system-design-interview/design-a-url-shortener",
+      "type": "article",
+      "difficulty": 3
+    }
+  ],
+  "base62_encoding": [
+    {
+      "title": "Base62 Encoding for Short IDs",
+      "url": "https://en.wikipedia.org/wiki/Base62",
+      "type": "article",
+      "difficulty": 2
+    },
+    {
+      "title": "Generating Unique Short URLs",
+      "url": "https://neetcode.io/courses/system-design-for-beginners/13",
+      "type": "article",
+      "difficulty": 2
+    }
+  ],
+  "token_bucket": [
+    {
+      "title": "Token Bucket Algorithm",
+      "url": "https://en.wikipedia.org/wiki/Token_bucket",
+      "type": "article",
+      "difficulty": 2
+    },
+    {
+      "title": "Rate Limiting Algorithms — Stripe Engineering",
+      "url": "https://stripe.com/blog/rate-limiters",
+      "type": "article",
+      "difficulty": 3
+    }
+  ],
+  "sliding_window_counter": [
+    {
+      "title": "Sliding Window Rate Limiting",
+      "url": "https://konghq.com/blog/how-to-design-a-scalable-rate-limiting-algorithm",
+      "type": "article",
+      "difficulty": 3
+    },
+    {
+      "title": "Rate Limiting Algorithms — Cloudflare",
+      "url": "https://blog.cloudflare.com/counting-things-a-lot-of-different-things/",
+      "type": "article",
+      "difficulty": 3
+    }
+  ],
+  "distributed_rate_limiting": [
+    {
+      "title": "Distributed Rate Limiting with Redis",
+      "url": "https://redis.io/glossary/rate-limiting/",
+      "type": "article",
+      "difficulty": 3
+    },
+    {
+      "title": "Rate Limiting at Scale — Figma Engineering",
+      "url": "https://www.figma.com/blog/an-alternative-approach-to-rate-limiting/",
+      "type": "article",
+      "difficulty": 4
+    }
+  ],
+  "push_vs_pull_notifications": [
+    {
+      "title": "Push vs Pull Architecture",
+      "url": "https://aws.amazon.com/compare/the-difference-between-push-and-pull-architecture/",
+      "type": "article",
+      "difficulty": 2
+    },
+    {
+      "title": "Designing a Notification System — ByteByteGo",
+      "url": "https://bytebytego.com/courses/system-design-interview/design-a-notification-system",
+      "type": "article",
+      "difficulty": 3
+    }
+  ],
+  "delivery_guarantees": [
+    {
+      "title": "At-Most-Once, At-Least-Once, Exactly-Once — Kafka Docs",
+      "url": "https://kafka.apache.org/documentation/#semantics",
+      "type": "article",
+      "difficulty": 3
+    },
+    {
+      "title": "Message Delivery Guarantees Explained",
+      "url": "https://www.cloudamqp.com/blog/part1-rabbitmq-best-practice.html",
+      "type": "article",
+      "difficulty": 3
+    }
+  ],
+  "fan_out_scale": [
+    {
+      "title": "Scaling Push Messaging at LinkedIn",
+      "url": "https://engineering.linkedin.com/blog/2019/the-future-of-inmail",
+      "type": "article",
+      "difficulty": 4
+    },
+    {
+      "title": "Notification System at Scale — Meta Engineering",
+      "url": "https://engineering.fb.com/2015/08/26/android/improving-facebook-s-performance-on-android-with-flatbuffers/",
+      "type": "article",
+      "difficulty": 4
+    }
+  ],
+  "cache_eviction_policies": [
+    {
+      "title": "LRU vs LFU Cache Eviction",
+      "url": "https://redis.io/docs/manual/eviction/",
+      "type": "article",
+      "difficulty": 2
+    },
+    {
+      "title": "Caching Strategies and How to Choose",
+      "url": "https://codeahoy.com/2017/08/11/caching-strategies-and-how-to-choose-the-right-one/",
+      "type": "article",
+      "difficulty": 2
+    }
+  ],
+  "cache_consistency": [
+    {
+      "title": "Cache-Aside vs Write-Through vs Write-Behind",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/database-caching-strategies-using-redis/caching-patterns.html",
+      "type": "article",
+      "difficulty": 3
+    },
+    {
+      "title": "Cache Invalidation — the Hard Problem",
+      "url": "https://martinfowler.com/bliki/TwoHardThings.html",
+      "type": "article",
+      "difficulty": 2
+    }
+  ],
+  "consistent_hashing": [
+    {
+      "title": "Consistent Hashing — System Design Primer",
+      "url": "https://github.com/donnemartin/system-design-primer#consistent-hashing",
+      "type": "article",
+      "difficulty": 3
+    },
+    {
+      "title": "Consistent Hashing — Tom White",
+      "url": "https://tom-e-white.com/2007/11/consistent-hashing.html",
+      "type": "article",
+      "difficulty": 3
+    }
+  ],
+  "trie_vs_inverted_index": [
+    {
+      "title": "Trie Data Structure",
+      "url": "https://en.wikipedia.org/wiki/Trie",
+      "type": "article",
+      "difficulty": 2
+    },
+    {
+      "title": "Inverted Index for Search",
+      "url": "https://www.elastic.co/blog/found-elasticsearch-from-the-bottom-up",
+      "type": "article",
+      "difficulty": 3
+    }
+  ],
+  "prefix_matching": [
+    {
+      "title": "Autocomplete System Design — ByteByteGo",
+      "url": "https://bytebytego.com/courses/system-design-interview/design-a-search-autocomplete-system",
+      "type": "article",
+      "difficulty": 3
+    },
+    {
+      "title": "Prefix Trees for Typeahead",
+      "url": "https://medium.com/@prefixtree/typeahead-search-at-scale-6c2d99e6e8ef",
+      "type": "article",
+      "difficulty": 3
+    }
+  ],
+  "typeahead_ranking": [
+    {
+      "title": "How Google Autocomplete Works",
+      "url": "https://blog.google/products/search/how-google-autocomplete-works-search/",
+      "type": "article",
+      "difficulty": 3
+    },
+    {
+      "title": "Ranking in Search Autocomplete Systems",
+      "url": "https://engineering.linkedin.com/blog/2016/11/linkedin-type-ahead-search",
+      "type": "article",
+      "difficulty": 4
+    }
+  ],
+  "idempotency_keys": [
+    {
+      "title": "Idempotency — Stripe API Docs",
+      "url": "https://stripe.com/docs/api/idempotent_requests",
+      "type": "article",
+      "difficulty": 2
+    },
+    {
+      "title": "Handling Duplicate Requests in Distributed Systems",
+      "url": "https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/",
+      "type": "article",
+      "difficulty": 3
+    }
+  ],
+  "exactly_once_semantics": [
+    {
+      "title": "Exactly-Once Semantics in Kafka",
+      "url": "https://www.confluent.io/blog/exactly-once-semantics-are-possible-heres-how-apache-kafka-does-it/",
+      "type": "article",
+      "difficulty": 4
+    },
+    {
+      "title": "Distributed Transactions and Exactly-Once Delivery",
+      "url": "https://martinfowler.com/articles/patterns-of-distributed-systems/two-phase-commit.html",
+      "type": "article",
+      "difficulty": 4
+    }
+  ],
+  "ledger_integrity": [
+    {
+      "title": "Ledger-Based Financial Systems",
+      "url": "https://engineering.squareup.com/engineering/the-ledger",
+      "type": "article",
+      "difficulty": 4
+    },
+    {
+      "title": "Append-Only Ledgers for Financial Data",
+      "url": "https://developer.nordea.com/documentation/apis/ledger",
+      "type": "article",
+      "difficulty": 3
+    }
+  ],
+  "double_entry_bookkeeping": [
+    {
+      "title": "Double-Entry Bookkeeping for Engineers",
+      "url": "https://beancount.github.io/docs/the_double_entry_counting_method.html",
+      "type": "article",
+      "difficulty": 3
+    },
+    {
+      "title": "How Stripe Models Money Movements",
+      "url": "https://stripe.com/blog/ledger-stripe-financial-infrastructure",
+      "type": "article",
+      "difficulty": 4
+    }
+  ],
+  "cap_theorem": [
+    {
+      "title": "CAP Theorem — Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/CAP_theorem",
+      "type": "article",
+      "difficulty": 3
+    },
+    {
+      "title": "CAP Twelve Years Later — Eric Brewer",
+      "url": "https://www.infoq.com/articles/cap-twelve-years-later-how-the-rules-have-changed/",
+      "type": "article",
+      "difficulty": 4
+    },
+    {
+      "title": "Please Stop Calling Databases CP or AP",
+      "url": "https://martin.kleppmann.com/2015/05/11/please-stop-calling-databases-cp-or-ap.html",
+      "type": "article",
+      "difficulty": 4
+    }
+  ],
+  "database_sharding": [
+    {
+      "title": "Database Sharding — System Design Primer",
+      "url": "https://github.com/donnemartin/system-design-primer#sharding",
+      "type": "article",
+      "difficulty": 3
+    },
+    {
+      "title": "How Sharding Works — Jerod Santo",
+      "url": "https://medium.com/@jerodvenemafoundation/how-sharding-works-b4dec46b3f6",
+      "type": "article",
+      "difficulty": 3
+    }
+  ],
+  "read_replicas": [
+    {
+      "title": "Read Replicas — AWS RDS Docs",
+      "url": "https://aws.amazon.com/rds/features/read-replicas/",
+      "type": "article",
+      "difficulty": 2
+    },
+    {
+      "title": "Replication Lag and Read-Your-Writes Consistency",
+      "url": "https://www.postgresql.org/docs/current/hot-standby.html",
+      "type": "article",
+      "difficulty": 3
+    }
+  ]
+}

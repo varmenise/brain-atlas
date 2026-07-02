@@ -1,0 +1,29 @@
+{
+  "eval_cases": [
+    {
+      "eval_case_id": "evaluator_delegation_check",
+      "agent_data": {
+        "agents": {
+          "interviewer_agent": {
+            "agent_id": "interviewer_agent"
+          }
+        },
+        "turns": [
+          {
+            "turn_index": 0,
+            "events": [
+              {"author": "user", "content": {"parts": [{"text": "I'm ready for my system design interview."}]}},
+              {"author": "interviewer_agent", "content": {"parts": [{"text": "Great! Let's start. How would you design a distributed rate limiter?"}]}}
+            ]
+          },
+          {
+            "turn_index": 1,
+            "events": [
+              {"author": "user", "content": {"parts": [{"text": "I would use a token bucket algorithm stored in Redis to keep track of requests per user."}]}}
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BrainAtlas AI Interviewer</title>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <!-- Cytoscape.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+  <!-- Our Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-container">
+    <!-- Left Panel: Chat Interface -->
+    <aside class="chat-panel glass-panel">
+      <header class="panel-header">
+        <h1>BrainAtlas</h1>
+        <p class="subtitle">AI Technical Interviewer</p>
+      </header>
+      
+      <div id="chat-history" class="chat-history">
+        <div class="message system-message">
+          <div class="bubble">
+            <strong>System:</strong> Ready to begin the interview. Type your first message below.
+          </div>
+        </div>
+      </div>
+      
+      <form id="chat-form" class="chat-input-area">
+        <input type="text" id="chat-input" placeholder="Type your answer..." required autocomplete="off" />
+        <button type="submit" id="send-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </button>
+      </form>
+    </aside>
+
+    <!-- Right Panel: Graph Visualization -->
+    <main class="graph-panel glass-panel">
+      <header class="panel-header graph-header">
+        <h2>Knowledge Map</h2>
+        <button id="refresh-map-btn" class="secondary-btn">Refresh Map</button>
+      </header>
+      <div id="cy" class="cy-container"></div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

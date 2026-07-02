@@ -1,0 +1,36 @@
+{
+  "system_design": {
+    "dimensions": [
+      {
+        "name": "requirements_clarification",
+        "description": "Asked functional vs non-functional questions before designing?",
+        "weight": 0.20
+      },
+      {
+        "name": "scale_estimation",
+        "description": "Estimated QPS, storage, bandwidth to size the system?",
+        "weight": 0.15
+      },
+      {
+        "name": "high_level_design",
+        "description": "Architecture coherent — clear components and data flow?",
+        "weight": 0.20
+      },
+      {
+        "name": "data_model",
+        "description": "Schema sound for the access patterns?",
+        "weight": 0.15
+      },
+      {
+        "name": "deep_dive_quality",
+        "description": "Can go deep on one component when pushed?",
+        "weight": 0.15
+      },
+      {
+        "name": "trade_off_reasoning",
+        "description": "Explained why this choice over alternatives?",
+        "weight": 0.15
+      }
+    ]
+  }
+}

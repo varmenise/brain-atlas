@@ -1,0 +1,170 @@
+[
+  {
+    "id": "q_001",
+    "role": "swe",
+    "domain": "system_design",
+    "difficulty": 4,
+    "question_text": "Design a ride-sharing system like Uber.",
+    "question_type": "system_design",
+    "key_concepts": [
+      "geospatial_indexing",
+      "websocket_vs_polling",
+      "eventual_consistency",
+      "thundering_herd",
+      "matching_service_isolation"
+    ],
+    "model_answer_summary": "Strong answers identify real-time location at scale as the core challenge, use a geo-index for O(1) nearby driver lookup, and articulate the consistency trade-off explicitly.",
+    "common_mistakes": [
+      "Naive SQL lat/lng query instead of a geo-index",
+      "Polling every second without discussing WebSocket trade-offs",
+      "Not addressing delayed location updates"
+    ]
+  },
+  {
+    "id": "q_002",
+    "role": "swe",
+    "domain": "system_design",
+    "difficulty": 4,
+    "question_text": "Design a Twitter/X-style news feed.",
+    "question_type": "system_design",
+    "key_concepts": [
+      "fan_out_on_write",
+      "fan_out_on_read",
+      "timeline_aggregation",
+      "cache_consistency",
+      "read_replicas"
+    ],
+    "model_answer_summary": "Strong answers compare fan-out-on-write vs fan-out-on-read trade-offs explicitly, handle celebrity accounts as a special case, and address cache invalidation on follow/unfollow.",
+    "common_mistakes": [
+      "Applying fan-out-on-write uniformly without addressing celebrity accounts",
+      "No discussion of cache invalidation strategy",
+      "Ignoring the difference between home timeline and user timeline"
+    ]
+  },
+  {
+    "id": "q_003",
+    "role": "swe",
+    "domain": "system_design",
+    "difficulty": 4,
+    "question_text": "Design a URL shortener like bit.ly.",
+    "question_type": "system_design",
+    "key_concepts": [
+      "base62_encoding",
+      "hash_collision_handling",
+      "redirect_at_scale",
+      "database_sharding",
+      "cap_theorem"
+    ],
+    "model_answer_summary": "Strong answers pick a collision-resistant encoding scheme, discuss 301 vs 302 redirect implications, and reason about read-heavy scaling with a CDN or cache layer.",
+    "common_mistakes": [
+      "Not discussing collision resolution strategy",
+      "Ignoring the 301 vs 302 redirect distinction and its caching impact",
+      "Underestimating read-to-write ratio (100:1 is typical)"
+    ]
+  },
+  {
+    "id": "q_004",
+    "role": "swe",
+    "domain": "system_design",
+    "difficulty": 4,
+    "question_text": "Design a distributed rate limiter.",
+    "question_type": "system_design",
+    "key_concepts": [
+      "token_bucket",
+      "sliding_window_counter",
+      "distributed_rate_limiting",
+      "eventual_consistency",
+      "cap_theorem"
+    ],
+    "model_answer_summary": "Strong answers compare token bucket vs sliding window algorithms, discuss the race condition in distributed counters, and propose a Redis-based atomic solution with Lua scripts or INCR+EXPIRE.",
+    "common_mistakes": [
+      "Using a fixed window counter without acknowledging the burst problem at window edges",
+      "No discussion of the distributed synchronization problem",
+      "Ignoring the consistency vs availability trade-off under network partition"
+    ]
+  },
+  {
+    "id": "q_005",
+    "role": "swe",
+    "domain": "system_design",
+    "difficulty": 4,
+    "question_text": "Design a notification system (push, email, SMS).",
+    "question_type": "system_design",
+    "key_concepts": [
+      "push_vs_pull_notifications",
+      "delivery_guarantees",
+      "fan_out_scale",
+      "eventual_consistency",
+      "database_sharding"
+    ],
+    "model_answer_summary": "Strong answers model notification as a pipeline (event → queue → dispatcher → channel adapters), discuss at-least-once vs exactly-once delivery guarantees, and handle deduplication at the consumer.",
+    "common_mistakes": [
+      "Calling third-party providers (APNs, FCM) synchronously in the request path",
+      "No discussion of retry logic and idempotency",
+      "Treating all channels (push, email, SMS) identically without acknowledging their different latency and reliability profiles"
+    ]
+  },
+  {
+    "id": "q_006",
+    "role": "swe",
+    "domain": "system_design",
+    "difficulty": 4,
+    "question_text": "Design a distributed cache like Redis.",
+    "question_type": "system_design",
+    "key_concepts": [
+      "cache_eviction_policies",
+      "cache_consistency",
+      "consistent_hashing",
+      "thundering_herd",
+      "cap_theorem"
+    ],
+    "model_answer_summary": "Strong answers explain consistent hashing for node distribution, compare LRU/LFU eviction policies with a concrete use case, and address the thundering herd problem on cache miss.",
+    "common_mistakes": [
+      "Not explaining how nodes are assigned keys (consistent hashing)",
+      "Ignoring cache invalidation — only discussing cache population",
+      "No discussion of hot keys or the thundering herd problem"
+    ]
+  },
+  {
+    "id": "q_007",
+    "role": "swe",
+    "domain": "system_design",
+    "difficulty": 4,
+    "question_text": "Design a search autocomplete system.",
+    "question_type": "system_design",
+    "key_concepts": [
+      "trie_vs_inverted_index",
+      "prefix_matching",
+      "typeahead_ranking",
+      "cache_consistency",
+      "read_replicas"
+    ],
+    "model_answer_summary": "Strong answers compare trie vs inverted index for prefix matching, discuss pre-computation of top-k suggestions, and address how to handle ranking updates without blocking reads.",
+    "common_mistakes": [
+      "Proposing a naive DB LIKE query without acknowledging the latency problem",
+      "No discussion of how to rank or personalize suggestions",
+      "Not addressing stale suggestions when trending topics change rapidly"
+    ]
+  },
+  {
+    "id": "q_008",
+    "role": "swe",
+    "domain": "system_design",
+    "difficulty": 4,
+    "question_text": "Design a payment processing system.",
+    "question_type": "system_design",
+    "key_concepts": [
+      "idempotency_keys",
+      "exactly_once_semantics",
+      "ledger_integrity",
+      "double_entry_bookkeeping",
+      "cap_theorem"
+    ],
+    "model_answer_summary": "Strong answers center the design on idempotency (retries must not double-charge), use a double-entry ledger for auditability, and distinguish between payment intent creation and capture as separate operations.",
+    "common_mistakes": [
+      "No idempotency key strategy — retries cause double charges",
+      "Mutable balance field instead of an append-only ledger",
+      "Not distinguishing authorization from capture in the payment flow"
+    ]
+  }
+]
