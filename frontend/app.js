@@ -120,8 +120,7 @@ async function sendMessage(text) {
   try {
     const payload = {
       app_name: "app",
-      user_id: "web_user",
-      userId: "mock_user",
+      user_id: "user",
       session_id: state.sessionId,
       new_message: {
         role: "user",
