@@ -90,3 +90,16 @@ mcp_server/
   db.py                # JSONL read/write helpers
   test_mcp.py          # in-process smoke tests for all 4 tools
 ```
+
+---
+
+### D6 — Graph Visualization: Global Atlas View
+
+**Chosen:** The `/api/graph/{session_id}` endpoint computes the graph by iterating over *all* historical gaps from *all* sessions stored in `sessions.jsonl`. Node sizes scale dynamically based on the total historical frequency of the gap across the entire user's history.
+
+**Why for demo:** Provides a visually stunning and massively interconnected "Global Atlas" that proves the system's ability to persistently track knowledge gaps over time. Showing just the most recent session's gaps often resulted in sparse, underwhelming graphs (e.g. 1-2 nodes) if the user performed well on a specific topic.
+
+**Tradeoffs accepted:**
+- Can become visually cluttered (a "hairball") for power users with extensive history, as there is currently no filtering by domain or time period in the UI.
+
+**What to swap in for production:** Introduce UI toggles to switch between "Recent Session View" and "Global Atlas View", and add filters to isolate specific domains (e.g., engineering vs medical).

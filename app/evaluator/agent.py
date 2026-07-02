@@ -94,7 +94,7 @@ def extract_gaps(
 
 evaluator_agent = Agent(
     name="evaluator_agent",
-    model="gemini-2.0-flash-lite",
+    model="gemini-flash-lite-latest",
     mode="task",
     input_schema=EvaluatorInput,
     output_schema=EvaluationResult,

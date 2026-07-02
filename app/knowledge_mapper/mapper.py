@@ -59,37 +59,32 @@ def build_gap_graph(gaps: list[str], session_id: str) -> dict:
 
     severity = 1  # Fixed for prototype — DECISIONS.md D5
 
-    nodes = [
-        {
+    nodes = []
+    edges = []
+
+    # Map ALL gaps from ALL sessions (Global Atlas View)
+    for tag in frequency.keys():
+        size = severity * frequency.get(tag, 1)
+        nodes.append({
             "data": {
                 "id": tag,
                 "label": tag.replace("_", " ").title(),
-                "size": severity * frequency.get(tag, 1),
+                "size": size,
                 "domain": "system_design",
-                "resolved": False,
+                "resolved": False
             }
-        }
-        for tag in gaps
-    ]
+        })
 
-    edges = []
-    seen: set[tuple] = set()
-    for tag1, tag2 in combinations(sorted(gaps), 2):
-        key = (tag1, tag2)
-        if key in seen:
-            continue
-        seen.add(key)
-        weight = co_occurrence.get(key, 1)  # min 1: they co-occurred in this session
-        edges.append(
-            {
-                "data": {
-                    "id": f"{tag1}--{tag2}",
-                    "source": tag1,
-                    "target": tag2,
-                    "weight": weight,
-                }
+    # Map edges between ALL gaps that have co-occurred
+    for (tag1, tag2), weight in co_occurrence.items():
+        edges.append({
+            "data": {
+                "id": f"{tag1}--{tag2}",
+                "source": tag1,
+                "target": tag2,
+                "weight": weight
             }
-        )
+        })
 
     return {"nodes": nodes, "edges": edges}
 

@@ -79,7 +79,7 @@ def save_session_results(
 
 interviewer_agent = Agent(
     name="interviewer_agent",
-    model="gemini-2.0-flash-lite",
+    model="gemini-flash-lite-latest",
     description=(
         "Conducts a mock technical interview, evaluates answers silently, "
         "asks follow-ups for weak answers, and returns a session gap summary."

@@ -50,7 +50,7 @@ artifact_service_uri = f"gs://{logs_bucket_name}" if logs_bucket_name else None
 
 app: FastAPI = get_fast_api_app(
     agents_dir=AGENT_DIR,
-    web=False,
+    web=True,
     artifact_service_uri=artifact_service_uri,
     allow_origins=allow_origins,
     session_service_uri=session_service_uri,
@@ -86,19 +86,40 @@ def get_graph(session_id: str):
     sessions = read_sessions()
     session_record = next((s for s in sessions if s.get("session_id") == session_id), None)
     
+    # Fallback: If current session isn't logged yet, show the most recent past session
+    if not session_record and sessions:
+        session_record = sessions[-1]
+        session_id = session_record.get("session_id")
+    
     if not session_record:
         from fastapi import HTTPException
-        raise HTTPException(status_code=404, detail="Session not found")
+        raise HTTPException(status_code=404, detail="No sessions found")
         
     gaps = session_record.get("gaps", [])
     graph = build_gap_graph(gaps=gaps, session_id=session_id)
     return graph
 
+@app.get("/api/resources/{tag}")
+def get_resources(tag: str):
+    import sys
+    from pathlib import Path
+    
+    ROOT = Path(__file__).parent.parent
+    if str(ROOT / "mcp_server") not in sys.path:
+        sys.path.insert(0, str(ROOT / "mcp_server"))
+        
+    from mcp_server.server import get_study_resources
+    
+    # get_study_resources expects a list of tags
+    resources_dict = get_study_resources([tag])
+    # Returns a dict where the key is the tag and the value is a list of resource dicts
+    return resources_dict.get(tag, [])
+
 # Mount Frontend
 from fastapi.staticfiles import StaticFiles
 frontend_path = os.path.join(AGENT_DIR, "frontend")
 if os.path.exists(frontend_path):
-    app.mount("/", StaticFiles(directory=frontend_path, html=True), name="frontend")
+    app.mount("/atlas", StaticFiles(directory=frontend_path, html=True), name="frontend")
 
 
 @app.post("/feedback")

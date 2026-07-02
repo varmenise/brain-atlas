@@ -464,3 +464,8 @@ Record these moments as you build — a single edited video of 4–5 min is enou
 ## Future Improvements
 
 - **Real-time Map Updates:** Refactor `db.py` to support database `upserts` (updating existing session records instead of appending duplicates) so the Interviewer Agent can save its state after *every* answer. This will allow the frontend graph map to update in real-time while the user is actively answering questions, rather than waiting for the end-of-session reveal.
+- **Custom Context API:** Add an API to allow users to upload arbitrary context (documents, notes) and tag them as personalized study resources.
+- **Session Saving & Replay:** Allow users to save exceptionally good interview sessions as "model answer" resources to replay and learn from their own past successes.
+- **Spaced Repetition & Memory Decay:** Implement a time-based decay function in the Knowledge Mapper so that older gaps increase in size over time if they aren't practiced, enforcing spaced repetition.
+- **Multi-Tenant User Isolation:** Migrate from the local JSONL append-only log to a relational database (e.g., Postgres/Supabase) to store `user_id` on sessions and filter the graph output per-user.
+- **Global Atlas View:** Add a dashboard mode to visualize the entire knowledge graph, complete with domain filtering (e.g., filter by engineering, general knowledge, etc.). This enables users to freely explore and strengthen their overall weak areas outside the context of a single assessment.

@@ -57,13 +57,14 @@ def get_interview_questions(
 
     Returns all available questions if fewer exist than count (no error).
     """
+    import random
     results = [
         q for q in QUESTIONS
         if q["role"] == role
         and q["domain"] in domains
         and q["difficulty"] <= difficulty
     ]
-    return results[:count]
+    return random.sample(results, min(count, len(results)))
 
 
 @mcp.tool()

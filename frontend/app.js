@@ -10,6 +10,13 @@ const chatForm = document.getElementById('chat-form');
 const chatInput = document.getElementById('chat-input');
 const refreshBtn = document.getElementById('refresh-map-btn');
 
+// Drawer Elements
+const drawer = document.getElementById('resource-drawer');
+const drawerCloseBtn = document.getElementById('close-drawer-btn');
+const drawerContent = document.getElementById('drawer-content');
+const drawerTitle = document.getElementById('drawer-title');
+const markStudiedBtn = document.getElementById('mark-studied-btn');
+
 // Cytoscape Instance
 let cy;
 
@@ -54,6 +61,13 @@ function initCytoscape() {
       gravity: 250,
       numIter: 1000
     }
+  });
+
+  // Node Click Event -> Open Drawer
+  cy.on('tap', 'node', async function(evt){
+    const node = evt.target;
+    const tag = node.id();
+    await openResourceDrawer(tag, node.data('label'));
   });
 }
 
@@ -197,6 +211,60 @@ chatForm.addEventListener('submit', (e) => {
 });
 
 refreshBtn.addEventListener('click', refreshGraph);
+
+drawerCloseBtn.addEventListener('click', () => {
+  drawer.classList.add('hidden');
+});
+
+markStudiedBtn.addEventListener('click', () => {
+  alert("Future Improvement: This will shrink the gap's severity and fade the node!");
+  drawer.classList.add('hidden');
+});
+
+async function openResourceDrawer(tag, label) {
+  drawerTitle.textContent = `Resources: ${label}`;
+  drawerContent.innerHTML = '<div style="color:var(--text-muted); text-align:center;">Loading resources...</div>';
+  drawer.classList.remove('hidden');
+  
+  try {
+    const res = await fetch(`/api/resources/${tag}`);
+    if (!res.ok) throw new Error('Failed to fetch resources');
+    const resources = await res.json();
+    
+    drawerContent.innerHTML = '';
+    
+    if (resources.length === 0) {
+      drawerContent.innerHTML = '<div style="color:var(--text-muted); text-align:center;">No curated resources found for this topic.</div>';
+      return;
+    }
+    
+    resources.forEach(r => {
+      const a = document.createElement('a');
+      a.href = r.url;
+      a.target = '_blank';
+      a.className = 'resource-item';
+      
+      const title = document.createElement('div');
+      title.className = 'resource-title';
+      title.textContent = r.title;
+      
+      const meta = document.createElement('div');
+      meta.className = 'resource-meta';
+      
+      const type = document.createElement('span');
+      type.className = 'resource-type';
+      type.textContent = r.type || 'Article';
+      
+      meta.appendChild(type);
+      a.appendChild(title);
+      a.appendChild(meta);
+      drawerContent.appendChild(a);
+    });
+    
+  } catch (err) {
+    drawerContent.innerHTML = `<div style="color:#f87171; text-align:center;">${err.message}</div>`;
+  }
+}
 
 // Startup
 document.addEventListener('DOMContentLoaded', () => {

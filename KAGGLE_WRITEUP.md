@@ -1,14 +1,16 @@
-# BrainAtlas: An Adaptive Multi-Agent System for Personalized Technical Education
-**Advancing education through real-time knowledge gap analysis and interactive curriculum mapping**
+# BrainAtlas: An Adaptive Multi-Agent Cognitive Mapping System
+**A conversational brain aid for context retrieval, concept strengthening, and personalized knowledge mapping under stress**
 
 **Track:** Agents for Good
 
 ## 1. Introduction and Vision
-In the modern landscape of technical education, 1-on-1 tutoring and mock interviewing remain the gold standard for learning. However, human expert time is scarce, expensive, and inaccessible to the vast majority of learners globally. 
+Human memory is inherently fallible. For many, context retrieval—especially under high-stress situations like job interviews, university exams, or intense technical environments—can be a debilitating struggle. 
 
-**BrainAtlas** is a multi-agent educational platform designed to democratize access to high-quality, personalized technical mentorship. By leveraging the Google Agent Development Kit (ADK) and Gemini models, BrainAtlas simulates a real technical interview environment. Instead of just giving a pass/fail grade, the system intelligently extracts specific "knowledge gaps" from the user's answers and dynamically generates a personalized, interactive knowledge graph (using Cytoscape.js). This graph maps out exactly what the user needs to study, accompanied by targeted learning resources.
+**BrainAtlas** is a multi-agent cognitive aid designed to act as a personalized sparring partner and external memory map. While our prototype uses technical interviewing as a high-stress test case, the system's true purpose is far broader: helping individuals strengthen conceptual understanding, feel sharper in their daily lives, and overcome retrieval anxiety.
 
-This submission directly targets the **Agents for Good** track by advancing education—providing scalable, accessible, and highly targeted technical tutoring for individuals preparing for careers in software engineering and system design.
+By leveraging the Google Agent Development Kit (ADK) and Gemini models, BrainAtlas engages the user in deep conversation. Instead of just giving a pass/fail grade, the system intelligently extracts specific "knowledge gaps" from the user's answers. It then dynamically generates a persistent, interactive cognitive map (using Cytoscape.js) that visualizes exactly where the user's mental model is breaking down, accompanied by targeted resources to rebuild that confidence.
+
+This submission directly targets the **Agents for Good** track by advancing education and cognitive support—providing a scalable, accessible, and highly patient tool to help humanity learn, retain, and recall information when it matters most.
 
 ## 2. Multi-Agent Architecture
 
@@ -31,7 +33,7 @@ The Evaluator is a specialized "Task" agent designed purely for objective assess
 Instead of an LLM hallucinating study materials, BrainAtlas uses a deterministic pipeline and an MCP Server to handle domain knowledge:
 - The MCP server acts as the source of truth, providing the question bank, evaluation rubrics, and curated study resources.
 - At the end of the session, the aggregated knowledge gaps are persisted to a database.
-- A deterministic Knowledge Mapper reads this database, calculates the frequency and co-occurrence of missed concepts across multiple sessions, and compiles this into a Cytoscape.js compatible JSON structure.
+- A deterministic Knowledge Mapper reads this database to generate a massive, interconnected **Global Atlas View**. Rather than just showing the results of a single interview, it plots every single concept missed across *all* of the user's historical sessions. It elegantly scales the visual weight (size) of those nodes by aggregating the frequency of failures over time, allowing the user to seamlessly navigate their weakest areas and proactively strengthen their mental models.
 
 ## 3. Technical Implementation
 
@@ -53,14 +55,19 @@ By employing LLM-as-a-judge methodologies during development, we iteratively ref
 
 ## 5. Impact & "Agents for Good"
 
-Education is the ultimate equalizer, but the gap between theoretical knowledge and practical interview readiness keeps many talented individuals out of the tech industry. BrainAtlas solves this by creating a highly patient, endlessly available technical mentor. 
+The ability to recall information under pressure is a critical factor in academic, professional, and personal success. However, neurodivergent individuals, those with anxiety, or anyone simply overwhelmed by the volume of modern information often struggle to bridge the gap between what they know and what they can retrieve on demand. 
 
-Unlike standard chatbots that simply converse, BrainAtlas creates a **persistent knowledge artifact** (the Atlas). Over time, as the user completes more mock interviews, the graph grows. Nodes become larger based on the frequency of the mistakes, visually highlighting the user's weakest areas. Clicking a node opens a drawer with highly curated, MCP-provided study resources tailored to that specific gap.
+BrainAtlas solves this by creating a highly patient, endlessly available cognitive sparring partner. Unlike standard chatbots that simply converse, BrainAtlas creates a **persistent knowledge artifact** (the Atlas). Over time, as the user completes more sessions, the graph grows. Nodes become larger based on the frequency of retrieval failures, visually highlighting the user's weakest links. Clicking a node opens a drawer with highly curated, MCP-provided study resources tailored to that specific gap.
 
-By turning abstract failures into a concrete, interactive study roadmap, BrainAtlas empowers users to learn efficiently and enter the workforce with confidence.
+By turning abstract memory blanks into a concrete, interactive roadmap, BrainAtlas empowers users to strengthen their mental models, master complex subjects, and enter high-stress situations with renewed confidence.
 
 ## 6. Future Improvements
 
 - **Real-Time Graph Updates**: Transitioning the append-only JSON database to support upserts, allowing the frontend graph to animate and update in real-time as the user answers questions, rather than waiting for the session to conclude.
 - **Expanded Domains**: Currently focused on System Design and Software Engineering, the MCP server can easily be expanded to support medical exams, bar exams, and language learning.
 - **Voice Integration**: Leveraging Gemini's multimodal capabilities to conduct the interview entirely over voice for a more authentic testing environment.
+- **Custom Context API**: Adding an API that allows users to upload their own context (documents, notes, etc.) and tag them as personalized study resources.
+- **Session Saving & Replay**: Enabling users to save exceptionally good interview sessions as "model answer" study resources so they can replay and learn from their own past successes.
+- **Spaced Repetition & Memory Decay**: Implementing a time-decay algorithm for the knowledge graph where older, unpracticed gaps slowly grow in visual weight to remind the user that their memory of the concept is decaying.
+- **Multi-Tenant User Isolation**: Upgrading the local session database to a production-ready system (like Supabase) to partition and filter the Knowledge Graph by `user_id`, ensuring a fully personalized atlas for each individual user.
+- **Advanced Graph Filtering**: Adding dashboard UI toggles that allow users to filter their massive Global Atlas by specific domains (e.g., engineering vs. medical), by time periods (e.g., last 30 days vs. all-time), and by gap severity to easily isolate the most critical weak points.
