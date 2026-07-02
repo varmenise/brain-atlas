@@ -208,3 +208,5 @@ artifacts/
 
 # Application Data
 mcp_server/data/sessions.jsonl
+*.db
+session.db
