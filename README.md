@@ -30,15 +30,20 @@ An AI-powered technical interviewer and cognitive aid that creates a persistent,
    GOOGLE_API_KEY=your_gemini_api_key_here
    ```
 
-3. **Run the Application**
+3. **Run the Application Locally**
+   To test the ADK Developer UI only, you can run the built-in playground:
    ```bash
    agents-cli playground
    ```
-   *(Alternatively, run `uv run uvicorn app.fast_api_app:app --host 0.0.0.0 --port 8080`)*
+   
+   **To test the BrainAtlas Graph Interface (`/atlas`)**, you must run the full FastAPI server:
+   ```bash
+   uv run uvicorn app.fast_api_app:app --host 0.0.0.0 --port 8080
+   ```
 
 4. **Experience the Application**
+   - If running the full FastAPI server, open [http://localhost:8080/atlas](http://localhost:8080/atlas) to take the interview and see your Knowledge Graph grow!
    - Open [http://localhost:8080/dev-ui](http://localhost:8080/dev-ui) to watch the agents communicate in the ADK Agent Playground.
-   - Open [http://localhost:8080/atlas](http://localhost:8080/atlas) to take the interview and see your Knowledge Graph grow!
 
 ## Architecture
 
