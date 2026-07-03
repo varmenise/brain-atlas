@@ -23,7 +23,7 @@ This submission directly targets the **Agents for Good** track by advancing educ
 BrainAtlas relies on a collaborative multi-agent architecture to separate concerns, reduce hallucination, and ensure strict, rubric-based grading. The system is built using the **Google Agent Development Kit (ADK)** and consists of three core components:
 
 ### A. The Interviewer Agent (The Orchestrator)
-Powered by `gemini-3.5-flash`, the Interviewer Agent drives the conversation. 
+Powered by `gemini-flash-lite-latest`, the Interviewer Agent drives the conversation. 
 - It fetches questions from a curated bank via a Model Context Protocol (MCP) server.
 - It asks the user a question and waits for their response.
 - Behind the scenes, it delegates the user's answer to the Evaluator Agent.
@@ -47,7 +47,7 @@ Instead of an LLM hallucinating study materials, BrainAtlas uses a deterministic
 - **Frontend**: Vanilla Javascript and HTML, utilizing **Cytoscape.js** for rendering the interactive knowledge graph. Dark mode, glassmorphism, and dynamic animations provide a premium, engaging user experience.
 - **Backend**: FastAPI. The monolithic backend natively hosts the ADK `/run` streaming endpoints, manages the session state, and mounts the static frontend.
 - **Tooling**: Heavy utilization of ADK's `ToolContext` for native session injection and background database persistence without exposing internal IDs to the LLM. 
-- **Models**: Built to run efficiently on `gemini-3.5-flash` and `gemini-2.0-flash-lite`, optimizing for low latency (crucial for a conversational interview format) and low cost.
+- **Models**: Built to run efficiently on `gemini-flash-lite-latest`, optimizing for low latency (crucial for a conversational interview format) and low cost.
 
 ## 4. Evaluation and Quality Assurance
 
