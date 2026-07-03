@@ -3,6 +3,12 @@
 
 **Track:** Agents for Good
 
+## Live Demo Links
+- **The BrainAtlas Graph Interface**: [https://brain-atlas-923338777391.europe-west1.run.app/atlas](https://brain-atlas-923338777391.europe-west1.run.app/atlas)
+  - *The primary application. Start an interview session and watch your interactive Cytoscape knowledge graph dynamically build and scale in real time as the Evaluator Agent finds gaps in your answers. (Click nodes to open study drawers).*
+- **ADK Developer Trace Visualizer**: [https://brain-atlas-923338777391.europe-west1.run.app/](https://brain-atlas-923338777391.europe-west1.run.app/)
+  - *The developer UI. Visualizes the raw multi-agent orchestration, tool calls, and thought processes happening under the hood.*
+
 ## 1. Introduction and Vision
 Human memory is inherently fallible. For many, context retrieval—especially under high-stress situations like job interviews, university exams, or intense technical environments—can be a debilitating struggle. 
 

@@ -2,6 +2,10 @@
 
 An AI-powered technical interviewer and cognitive aid that creates a persistent, interactive knowledge graph of your weak areas. Built for the Kaggle "AI Agents: Intensive Vibe Coding Capstone" (Agents for Good Track).
 
+## Live Demo
+- **The BrainAtlas Graph Interface**: [https://brain-atlas-923338777391.europe-west1.run.app/atlas](https://brain-atlas-923338777391.europe-west1.run.app/atlas)
+- **ADK Developer Trace Visualizer**: [https://brain-atlas-923338777391.europe-west1.run.app/](https://brain-atlas-923338777391.europe-west1.run.app/)
+
 ## Features
 
 - **Multi-Agent Architecture**: Uses the Google Agent Development Kit (ADK) to coordinate an Interviewer Agent and a silent Evaluator Agent.
