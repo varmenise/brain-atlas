@@ -4,9 +4,9 @@ An AI-powered technical interviewer and cognitive aid that creates a persistent,
 
 ## Features
 
-- **Multi-Agent Architecture**: Uses the Google Agent Development Kit (ADK) to coordinate an Interviewer Agent, a silent Evaluator Agent, and a Knowledge Mapper.
+- **Multi-Agent Architecture**: Uses the Google Agent Development Kit (ADK) to coordinate an Interviewer Agent and a silent Evaluator Agent.
 - **MCP Server Knowledge Base**: Uses a FastMCP server as the ground-truth for questions, rubrics, and curated study resources, eliminating LLM hallucination.
-- **Persistent Knowledge Graph**: Gaps identified during the interview are plotted on a Cytoscape.js interactive graph, scaling in size based on your historical struggles.
+- **Persistent Knowledge Graph**: Gaps identified during the interview are plotted on a Cytoscape.js interactive graph, mapped deterministically by the backend to prevent hallucination.
 - **Dual UI Demonstration**:
   - **Dev UI** (`/dev-ui`): View the internal tool calls, multi-agent orchestration, and thought processes of the agents in real time.
   - **BrainAtlas Graph Interface** (`/atlas`): View the end-user chat interface and the interactive Cytoscape knowledge graph with sliding study resource drawers.
@@ -41,16 +41,16 @@ An AI-powered technical interviewer and cognitive aid that creates a persistent,
 ```
 User (role + experience level)
         │
-   Orchestrator (Antigravity / ADK)
+   Orchestrator (FastAPI / ADK)
    ┌────┴──────────────────────┐
    │                           │
 Interviewer Agent        Evaluator Agent   ← runs after every answer, silently
    │                           │
    └──────────┬────────────────┘
               │
-     Knowledge Mapper Agent   ← runs once at session end
+  Deterministic Graph Mapper   ← dynamically formats DB rows into Cytoscape nodes
               │
-     Graph JSON + Study Plan
+      Graph JSON + Study Plan
 ```
 
 ## Security & "Agents for Good"
