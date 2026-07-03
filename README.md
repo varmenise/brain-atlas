@@ -27,7 +27,7 @@ An AI-powered technical interviewer and cognitive aid that creates a persistent,
 2. **Environment Setup**
    Create a `.env` file in the root directory:
    ```env
-   GOOGLE_API_KEY=your_gemini_api_key_here
+   GEMINI_API_KEY=your_gemini_api_key_here
    ```
 
 3. **Run the Application Locally**
